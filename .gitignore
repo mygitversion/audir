@@ -1,7 +1,17 @@
 # Byte-compiled / optimized / DLL files
+config.py
+.vscode/
+env/
 __pycache__/
+*.db
 *.py[cod]
 *$py.class
+
+*.txt
+*.pdf
+*.mp3
+*.png
+*.jpg
 
 # C extensions
 *.so
