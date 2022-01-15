@@ -2,6 +2,7 @@
 config.py
 .vscode/
 env/
+static/upload/
 __pycache__/
 *.db
 *.py[cod]

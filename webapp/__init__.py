@@ -59,6 +59,10 @@ def create_app():
 
         return render_template("index.html", audir_files=audir_files)
 
+    @app.route('/player')
+    def play():
+        return render_template("player.html")
+
     @app.errorhandler(413)
     def too_large(e):
         return "File is too large", 413

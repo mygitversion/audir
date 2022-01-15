@@ -25,7 +25,7 @@
           {% for file in audir_files %}
             <tr>
               <td>{{ file.audir_title }}</td>
-              <td>{{ file.uploaded }}</td>
+              <td>{{ file.uploaded.strftime('%d.%m.%Y') }}</td>
               <td>{{ file.available_formats }}</td>
             </tr>
           {% endfor %}
