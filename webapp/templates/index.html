@@ -17,16 +17,16 @@
         <thead>
           <tr>
             <th>file_name</th>
-            <th>upload_time</th>
             <th>available_formats</th>
+            <th>upload_time</th>
           </tr>
         </thead>
         <tbody>
           {% for file in audir_files %}
             <tr>
-              <td>{{ file.audir_title }}</td>
-              <td>{{ file.uploaded.strftime('%d.%m.%Y') }}</td>
+              <td> <a href="/{{ file.id }}">{{ file.audir_title }}</a></td>
               <td>{{ file.available_formats }}</td>
+              <td>{{ file.uploaded.strftime('%d.%m.%Y') }}</td>
             </tr>
           {% endfor %}
         </tbody>

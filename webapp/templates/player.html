@@ -3,10 +3,56 @@
 {% block body %}
 <div class="container">
     <br><br>
-    <audio controls preload="auto">
-        <source src={{ url_for("static", filename = "upload/Frauen_im_Motorsport.mp3") }} type="audio/mpeg"> 
-    </audio>
 
+<div class="row">
+  <div class="col-8">
+  <h4>{{ titulo[:-4] }}</h4>
+    <br><br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <!-- <audio controls id="myaudio" preload="auto" autoplay> -->
+    <audio controls preload="auto" autoplay>
+        <source src="{{ url_for('static', filename='upload/'+mp3_ref) }}" type="audio/mpeg"> 
+    </audio>
+    <script>
+        var audio = $("audio")[0];
+        $(document).keydown(function(e) {
+          var unicode = e.charCode ? e.charCode : e.keyCode;
+          console.log(unicode);
+            // right arrow
+          if (unicode == 39) {
+            audio.currentTime += 3;
+            // back arrow
+          } else if (unicode == 37) {
+            audio.currentTime -= 3;
+            // spacebar
+          } else if (unicode == 32) {
+            if (audio.paused) {
+              audio.play();
+            } 
+            else {
+              audio.pause()
+            }
+          }
+        });
+    </script>
+  </div> 
+  <div class="col-4">
+    <div class="img-container">
+      <!-- <img src=" 'webapp/static/upload/{{ titulo[:-4] }}'+'.png' " alt="DW"> Frauen_im_Motorsport -->
+      <img src="{{ url_for('static', filename='upload/'+picture_ref) }}">
+    </div>
+  </div> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <!-- <p align="justify"> -->
+      <p align="justify">  
+        {{ text|safe }}
+      </p>
+    </div>
+  </div>
 </div>
 <br><br>
 {% endblock %}
